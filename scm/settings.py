@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-from django.conf import global_settings
+from django.conf import global_settings 
 import django.conf.locale
 from django.conf.locale import LANG_INFO
 import os
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'orgs',
-    # 'whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     'crispy_forms',
     'django_countries',
     'phonenumber_filter',
@@ -68,7 +68,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -102,20 +102,36 @@ WSGI_APPLICATION = 'scm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.mysql',
+#     #     'NAME': 'djangodatabase',
+#     #     'USER': 'dbadmin',
+#     #     'PASSWORD': '12345',
+#     #     'HOST': 'localhost',
+#     #     'PORT': '3306',
+#     # }
+# }
+#azure database 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'djangodatabase',
-    #     'USER': 'dbadmin',
-    #     'PASSWORD': '12345',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
-    # }
-}
+     'default': {
+         'ENGINE': 'sql_server.pyodbc',
+         'NAME': 'SCG_DB_V0',
+         'USER': 'khalil',
+         'PASSWORD': '5617944kK',
+         'HOST': 'scg-server-v0.database.windows.net',
+         'PORT': '1433',
+         'OPTIONS': {
+             'driver': 'ODBC Driver 17 for SQL Server',
+             'MARS_Connection': 'True'
+         }
+     }
+ }
+
 
 
 # Password validation
@@ -195,13 +211,13 @@ LOGIN_REDIRECT_URL = 'profile'
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static/')
+# ]
 
 
-# STATIC_ROOT = (os.path.join(BASE_DIR, 'static/'))
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATIC_ROOT = (os.path.join(BASE_DIR, 'static/'))
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_ROOT = (os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = '/media/'

@@ -11,6 +11,7 @@ django-crispy-forms==1.9.2
 django-filter==2.3.0
 django-i18n==1.0.4
 django-js-asset==1.2.2
+django-mssql-backend==2.8.0
 django-on-heroku==1.1.2
 django-phonenumber-filter==1.0.0
 et-xmlfile==1.0.1
@@ -21,6 +22,7 @@ jdcal==1.4.1
 Jinja2==2.11.2
 MarkupSafe==1.1.1
 numpy==1.19.4
+openpyxl==3.0.5
 packaging==20.4
 phonenumbers==8.12.9
 Pillow==7.2.0
@@ -29,8 +31,8 @@ polib==1.1.0
 poxls==1.6.2
 psycopg2-binary==2.8.6
 pycodestyle==2.6.0
-pycosat==0.6.3
 PyMsgBox==1.0.9
+pyodbc==4.0.30
 pyparsing==2.4.7
 pypi==2.1
 python-dateutil==2.8.1
